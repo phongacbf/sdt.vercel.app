@@ -196,34 +196,34 @@ footer a:hover{color:#fff;}
 .modal-close{position:absolute;top:14px;right:14px;background:var(--bg);border:none;
   border-radius:50%;width:30px;height:30px;font-size:15px;cursor:pointer;
   display:flex;align-items:center;justify-content:center;color:var(--muted);}
-.mh2{font-family:'Lexend',sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;}
-.mdesc{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.mh2{font-family:'Lexend',sans-serif;font-size:21px;font-weight:700;margin-bottom:4px;}
+.mdesc{font-size:15px;color:var(--muted);margin-bottom:16px;}
 .plan-summary{background:var(--g3);border-radius:10px;padding:11px 15px;
   margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;}
-.plan-summary span{font-size:13px;font-weight:600;color:var(--g);}
+.plan-summary span{font-size:15px;font-weight:600;color:var(--g);}
 .plan-summary strong{font-family:'Lexend',sans-serif;font-size:20px;font-weight:800;color:var(--g);}
-.mlabel{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;}
+.mlabel{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;}
 .minput{width:100%;padding:11px 13px;border:1.5px solid #d0d0d0;border-radius:10px;
-  font-family:inherit;font-size:14px;outline:none;transition:border-color .15s;margin-bottom:14px;}
+  font-family:inherit;font-size:15px;outline:none;transition:border-color .15s;margin-bottom:14px;}
 .minput:focus{border-color:var(--g);}
 .minput.err{border-color:var(--red);}
 .tab-row{display:flex;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:16px;}
 .tab-btn{flex:1;padding:8px 4px;border:none;border-radius:8px;background:none;
-  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;text-align:center;}
+  font-family:inherit;font-size:15px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;text-align:center;}
 .tab-btn.active{background:#fff;color:var(--g);box-shadow:0 2px 8px rgba(0,0,0,.08);}
 .transfer-box{background:var(--g3);border-radius:12px;padding:14px;margin-bottom:14px;}
 .trow{display:flex;justify-content:space-between;align-items:center;padding:5px 0;}
 .trow:not(:last-child){border-bottom:1px solid rgba(13,74,40,.1);}
-.trow label{font-size:12px;color:var(--muted);}
-.trow strong{font-size:13px;font-weight:700;color:var(--ink);}
-.copy-btn{background:none;border:1px solid var(--g);color:var(--g);font-size:11px;
+.trow label{font-size:14px;color:var(--muted);}
+.trow strong{font-size:15px;font-weight:700;color:var(--ink);}
+.copy-btn{background:none;border:1px solid var(--g);color:var(--g);font-size:13px;
   padding:2px 8px;border-radius:5px;cursor:pointer;font-family:inherit;margin-left:6px;flex-shrink:0;}
 .copy-btn:active{background:var(--g3);}
 .qr-wrap{text-align:center;margin-bottom:14px;}
 .qr-wrap img{width:200px;height:200px;border-radius:12px;border:2px solid var(--g3);}
-.qr-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;}
+.qr-note{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.6;}
 @keyframes spin{to{transform:rotate(360deg);}}
-.warn-box{background:#fff8e1;border-radius:8px;padding:10px 12px;font-size:12px;color:#7a5800;margin-bottom:12px;}
+.warn-box{background:#fff8e1;border-radius:8px;padding:10px 12px;font-size:14px;color:#7a5800;margin-bottom:12px;}
 .btn-confirm{width:100%;padding:13px;background:var(--g);color:#fff;font-family:'Lexend',sans-serif;
   font-size:15px;font-weight:700;border:none;border-radius:50px;cursor:pointer;
   box-shadow:0 4px 16px rgba(13,74,40,.25);transition:transform .15s;display:block;text-align:center;text-decoration:none;}
@@ -514,11 +514,11 @@ footer a:hover{color:#fff;}
 
     <div class="mlabel">Gmail của bạn</div>
     <div style="display:flex;align-items:center;border:1.5px solid #d0d0d0;border-radius:10px;overflow:hidden;margin-bottom:14px;transition:border-color .15s;background:#fff;" id="email-wrap">
-      <input style="flex:1;min-width:0;padding:11px 4px 11px 13px;border:none;font-family:inherit;font-size:14px;outline:none;color:#0a1f10;background:transparent;transition:flex .3s ease;width:0;" type="text" id="inp-email" placeholder="tên đăng nhập" inputmode="email" autocomplete="username"
+      <input style="flex:1;min-width:0;padding:11px 0 11px 13px;border:none;font-family:inherit;font-size:14px;outline:none;color:#0a1f10;background:transparent;transition:flex .3s ease;width:0;" type="text" id="inp-email" placeholder="tên đăng nhập" inputmode="email" autocomplete="username"
         oninput="syncEmail()"
         onfocus="this.style.flex='1';document.getElementById('email-wrap').style.borderColor='#0d4a28'"
         onblur="shrinkEmail(this)">
-      <span id="gmail-suffix" style="padding:11px 13px 11px 2px;font-size:14px;color:#4a6b55;font-weight:600;background:transparent;white-space:nowrap;flex-shrink:0;transition:opacity .2s;">@gmail.com</span>
+      <span id="gmail-suffix" style="padding:11px 13px 11px 0;font-size:14px;color:#4a6b55;font-weight:600;background:transparent;white-space:nowrap;flex-shrink:0;transition:opacity .2s;">@gmail.com</span>
     </div>
     <input type="hidden" id="inp-email-full">
     <button class="btn-confirm" onclick="goStep2()">Tiếp tục → Xem thông tin thanh toán</button>
@@ -631,13 +631,12 @@ function shrinkEmail(inp){
   document.getElementById('email-wrap').style.borderColor='#d0d0d0';
   const val = inp.value.trim();
   if(val){
-    /* Đo độ rộng text bằng canvas để set width chính xác */
     const canvas = shrinkEmail._canvas || (shrinkEmail._canvas = document.createElement('canvas'));
     const ctx = canvas.getContext('2d');
     ctx.font = '14px "Be Vietnam Pro", sans-serif';
     const tw = ctx.measureText(val).width;
     inp.style.flex = 'none';
-    inp.style.width = Math.ceil(tw + 28) + 'px'; /* 28px = padding trái + phải */
+    inp.style.width = Math.ceil(tw + 14) + 'px'; /* 14px = padding-left only, padding-right=0 */
   } else {
     inp.style.flex = '1';
     inp.style.width = '';
