@@ -631,12 +631,18 @@ function shrinkEmail(inp){
   document.getElementById('email-wrap').style.borderColor='#d0d0d0';
   const val = inp.value.trim();
   if(val){
-    const canvas = shrinkEmail._canvas || (shrinkEmail._canvas = document.createElement('canvas'));
-    const ctx = canvas.getContext('2d');
-    ctx.font = '14px "Be Vietnam Pro", sans-serif';
-    const tw = ctx.measureText(val).width;
+    /* Dùng span ẩn cùng font để đo width chính xác trên thiết bị thật */
+    let ruler = document.getElementById('_email_ruler');
+    if(!ruler){
+      ruler = document.createElement('span');
+      ruler.id = '_email_ruler';
+      ruler.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font-family:"Be Vietnam Pro",sans-serif;font-size:14px;padding:0;margin:0;border:0;';
+      document.body.appendChild(ruler);
+    }
+    ruler.textContent = val;
+    const tw = ruler.getBoundingClientRect().width;
     inp.style.flex = 'none';
-    inp.style.width = Math.ceil(tw + 14) + 'px'; /* 14px = padding-left only, padding-right=0 */
+    inp.style.width = Math.ceil(tw + 14) + 'px'; /* 14px = padding-left */
   } else {
     inp.style.flex = '1';
     inp.style.width = '';
