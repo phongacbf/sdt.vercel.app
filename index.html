@@ -31,7 +31,7 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--in
 
 /* ══ HERO ══ */
 .hero{background:var(--g);min-height:100svh;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:48px 20px 80px;position:relative;overflow:hidden;}
+  align-items:center;justify-content:center;padding:48px 20px 6px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;inset:0;
   background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(26,107,58,.7),transparent 70%),
              radial-gradient(ellipse 50% 40% at 90% 80%,rgba(240,165,0,.08),transparent 60%);}
@@ -65,25 +65,27 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--in
 /* ══ SECTIONS ══ */
 section{padding:64px 20px;}
 .container{max-width:860px;margin:0 auto;}
-.section-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g2);margin-bottom:8px;}
-.section-title{font-family:'Lexend',sans-serif;font-size:clamp(22px,5vw,34px);font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:12px;}
+.section-label{font-size:13px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g2);margin-bottom:8px;}
+.section-title{font-family:'Lexend',sans-serif;font-size:clamp(24px,5vw,36px);font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:12px;}
 .section-title span{color:var(--g);}
-.section-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+.section-sub{font-size:17px;color:var(--muted);line-height:1.7;max-width:560px;}
 
 /* ══ PAIN ══ */
 .pain{background:#fff;}
 .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:36px;}
 .pain-card{background:var(--bg);border-radius:var(--radius);padding:20px;border-left:3px solid var(--red);}
-.pain-card .icon{font-size:24px;margin-bottom:8px;}
-.pain-card h3{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
-.pain-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.pain-card-hdr{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.pain-card .icon{font-size:24px;flex-shrink:0;}
+.pain-card h3{font-size:18px;font-weight:700;color:var(--ink);margin:0;}
+.pain-card p{font-size:17.5px;color:var(--muted);line-height:1.6;}
 
 /* ══ FEATURES ══ */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:36px;}
 .feat-card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
-.feat-icon{width:40px;height:40px;background:var(--g3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:10px;}
-.feat-card h3{font-size:14px;font-weight:700;margin-bottom:5px;}
-.feat-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+.feat-card-hdr{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.feat-icon{width:40px;height:40px;background:var(--g3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.feat-card h3{font-size:18px;font-weight:700;margin:0;}
+.feat-card p{font-size:17.5px;color:var(--muted);line-height:1.6;}
 
 /* ══ PRICING ══ */
 .pricing{background:var(--g);padding:72px 20px;}
@@ -96,20 +98,20 @@ section{padding:64px 20px;}
 .plan:hover{transform:translateY(-4px);}
 .plan.featured{background:#fff;border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,165,0,.3),0 20px 50px rgba(0,0,0,.3);}
 .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);
-  color:#0a1f10;font-size:10px;font-weight:800;padding:3px 14px;border-radius:20px;white-space:nowrap;}
-.plan-name{font-family:'Lexend',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;}
+  color:#0a1f10;font-size:11px;font-weight:800;padding:3px 14px;border-radius:20px;white-space:nowrap;}
+.plan-name{font-family:'Lexend',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:6px;}
 .plan.featured .plan-name{color:var(--ink);}
 .plan-price strong{font-family:'Lexend',sans-serif;font-size:32px;font-weight:800;color:var(--gold);}
 .plan.featured .plan-price strong{color:var(--g);}
-.plan-price span{font-size:13px;color:rgba(255,255,255,.6);margin-left:4px;}
+.plan-price span{font-size:17.5px;color:rgba(255,255,255,.6);margin-left:4px;}
 .plan.featured .plan-price span{color:var(--muted);}
-.plan-alt{display:block;font-size:12px;color:rgba(255,255,255,.5);margin-top:3px;margin-bottom:12px;}
+.plan-alt{display:block;font-size:17.5px;color:rgba(255,255,255,.5);margin-top:3px;margin-bottom:12px;}
 .plan.featured .plan-alt{color:var(--muted);}
 .plan-save{display:inline-block;background:rgba(240,165,0,.15);color:var(--gold);
-  font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;}
+  font-size:17.5px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;}
 .plan.featured .plan-save{background:rgba(13,74,40,.1);color:var(--g);}
 .plan-features{list-style:none;margin-bottom:22px;}
-.plan-features li{font-size:13px;padding:5px 0;display:flex;align-items:flex-start;gap:8px;
+.plan-features li{font-size:17.5px;padding:5px 0;display:flex;align-items:flex-start;gap:8px;
   color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.07);}
 .plan.featured .plan-features li{color:var(--ink);border-bottom-color:rgba(13,74,40,.08);}
 .plan-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
@@ -118,7 +120,7 @@ section{padding:64px 20px;}
 .plan.featured .plan-features li.no{color:#ccc;}
 .plan.featured .plan-features li.no::before{color:#ccc;}
 .btn-plan{width:100%;padding:12px;border-radius:50px;border:none;font-family:'Lexend',sans-serif;
-  font-size:14px;font-weight:700;cursor:pointer;transition:transform .15s,opacity .15s;}
+  font-size:17.5px;font-weight:700;cursor:pointer;transition:transform .15s,opacity .15s;}
 .btn-plan:hover{transform:scale(1.02);}
 .btn-free{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);}
 .btn-month{background:var(--gold);color:#0a1f10;}
@@ -133,41 +135,41 @@ section{padding:64px 20px;}
   font-family:'Lexend',sans-serif;font-size:16px;font-weight:700;display:flex;
   align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;
   box-shadow:0 4px 14px rgba(13,74,40,.3);}
-.step-body h3{font-size:15px;font-weight:700;padding-top:10px;margin-bottom:4px;}
-.step-body p{font-size:13px;color:var(--muted);line-height:1.65;}
+.step-body h3{font-size:18px;font-weight:700;padding-top:10px;margin-bottom:4px;}
+.step-body p{font-size:17.5px;color:var(--muted);line-height:1.65;}
 
 /* ══ TESTIMONIALS ══ */
 .testi{background:#fff;}
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:36px;}
 .testi-card{background:var(--bg);border-radius:var(--radius);padding:20px;}
-.stars{color:var(--gold);font-size:14px;margin-bottom:8px;}
-.testi-text{font-size:13.5px;line-height:1.7;font-style:italic;margin-bottom:12px;}
+.stars{color:var(--gold);font-size:18px;margin-bottom:8px;}
+.testi-text{font-size:17.5px;line-height:1.7;font-style:italic;margin-bottom:12px;}
 .testi-author{display:flex;align-items:center;gap:10px;}
 .avatar{width:36px;height:36px;border-radius:50%;background:var(--g);color:#fff;
   font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.tname{font-size:13px;font-weight:700;}
-.trole{font-size:11px;color:var(--muted);}
+.tname{font-size:18px;font-weight:700;}
+.trole{font-size:17.5px;color:var(--muted);}
 
 /* ══ FAQ ══ */
 .faq-list{margin-top:32px;display:flex;flex-direction:column;gap:8px;}
 .faq-item{background:#fff;border-radius:12px;border:1px solid rgba(13,74,40,.08);}
 .faq-q{width:100%;padding:15px 18px;text-align:left;background:none;border:none;
-  font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;
+  font-family:inherit;font-size:18px;font-weight:600;color:var(--ink);cursor:pointer;
   display:flex;justify-content:space-between;align-items:center;gap:12px;}
-.faq-q .arr{transition:transform .25s;font-size:11px;color:var(--muted);flex-shrink:0;}
+.faq-q .arr{transition:transform .25s;font-size:12px;color:var(--muted);flex-shrink:0;}
 .faq-item.open .faq-q .arr{transform:rotate(180deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-.faq-item.open .faq-a{max-height:220px;}
-.faq-a p{padding:0 18px 14px;font-size:13.5px;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{max-height:240px;}
+.faq-a p{padding:0 18px 14px;font-size:17.5px;color:var(--muted);line-height:1.7;}
 
 /* ══ CTA BOTTOM ══ */
-.cta-bottom{background:linear-gradient(135deg,var(--g),var(--g2));padding:72px 20px;text-align:center;}
-.cta-bottom h2{font-family:'Lexend',sans-serif;font-size:clamp(22px,5vw,34px);font-weight:800;color:#fff;margin-bottom:10px;}
-.cta-bottom p{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:28px;}
+.cta-bottom{background:linear-gradient(135deg,var(--g),var(--g2));padding:12px 20px;text-align:center;}
+.cta-bottom h2{font-family:'Lexend',sans-serif;font-size:clamp(24px,5vw,36px);font-weight:800;color:#fff;margin-bottom:10px;}
+.cta-bottom p{font-size:18px;color:rgba(255,255,255,.75);margin-bottom:28px;}
 
 /* ══ FOOTER ══ */
 footer{background:#071a0e;padding:28px 20px;text-align:center;}
-footer p{font-size:12px;color:rgba(255,255,255,.4);line-height:2.2;}
+footer p{font-size:17.5px;color:rgba(255,255,255,.4);line-height:2.2;}
 footer a{color:rgba(255,255,255,.55);text-decoration:none;}
 footer a:hover{color:#fff;}
 
@@ -176,8 +178,8 @@ footer a:hover{color:#fff;}
   border-top:1px solid rgba(13,74,40,.12);padding:10px 16px 16px;z-index:100;
   display:none;align-items:center;justify-content:space-between;gap:12px;
   box-shadow:0 -4px 20px rgba(0,0,0,.1);}
-.sticky-left{font-size:12px;color:var(--muted);line-height:1.4;}
-.sticky-left strong{display:block;font-size:14px;color:var(--ink);font-weight:700;}
+.sticky-left{font-size:14px;color:var(--muted);line-height:1.4;}
+.sticky-left strong{display:block;font-size:15px;color:var(--ink);font-weight:700;}
 .btn-sticky{background:var(--g);color:#fff;font-family:'Lexend',sans-serif;font-size:14px;
   font-weight:700;padding:11px 22px;border-radius:50px;border:none;cursor:pointer;white-space:nowrap;
   box-shadow:0 4px 14px rgba(13,74,40,.3);}
@@ -218,8 +220,9 @@ footer a:hover{color:#fff;}
   padding:2px 8px;border-radius:5px;cursor:pointer;font-family:inherit;margin-left:6px;flex-shrink:0;}
 .copy-btn:active{background:var(--g3);}
 .qr-wrap{text-align:center;margin-bottom:14px;}
-.qr-wrap img{width:180px;height:180px;border-radius:12px;border:2px solid var(--g3);}
+.qr-wrap img{width:200px;height:200px;border-radius:12px;border:2px solid var(--g3);}
 .qr-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;}
+@keyframes spin{to{transform:rotate(360deg);}}
 .warn-box{background:#fff8e1;border-radius:8px;padding:10px 12px;font-size:12px;color:#7a5800;margin-bottom:12px;}
 .btn-confirm{width:100%;padding:13px;background:var(--g);color:#fff;font-family:'Lexend',sans-serif;
   font-size:15px;font-weight:700;border:none;border-radius:50px;cursor:pointer;
@@ -258,17 +261,68 @@ footer a:hover{color:#fff;}
 <!-- HERO -->
 <section class="hero" id="top">
   <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:0;">
-    <div class="hero-badge" style="animation:fadeUp .6s ease both">🆕 Theo Thông tư 152/2025/TT-BTC · Hiệu lực 01/01/2026</div>
-    <h1>Sổ Doanh Thu<br><span>Đúng Luật. Dùng Ngay.</span><br>Không Cần Cài App.</h1>
-    <p class="hero-sub">Ghi sổ S2a-HKD chuẩn pháp lý ngay trên điện thoại. Tự động tính thuế GTGT & TNCN. Xuất PDF nộp thuế trong 30 giây.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><strong>500tr–3 tỷ</strong><span>Nhóm doanh thu</span></div>
-      <div class="hero-stat"><strong>20/4/2026</strong><span>Hạn nộp Quý 1</span></div>
-      <div class="hero-stat"><strong>30 giây</strong><span>Xuất báo cáo</span></div>
+
+    <!-- 1. Nút MẪU SỐ S2a-HKD màu vàng -->
+    <div style="background:var(--gold);color:#0a1f10;font-family:'Lexend',sans-serif;
+      font-size:clamp(18px,4.5vw,26px);font-weight:800;letter-spacing:.08em;
+      padding:8px 28px;border-radius:8px;margin-bottom:10px;text-align:center;
+      animation:fadeUp .5s ease both;">
+      MẪU SỐ S2A-HKD
     </div>
-    <div class="hero-cta">
-      <a href="#pricing" class="btn-primary">Chọn gói — Dùng ngay →</a>
-      <a href="https://sodt.vercel.app" class="btn-ghost" target="_blank">Dùng thử miễn phí (không cần thanh toán)</a>
+
+    <!-- 2. Theo Thông tư — 15px -->
+    <div style="font-size:15px;color:rgba(255,255,255,.75);
+      text-align:center;line-height:1.5;margin-bottom:18px;max-width:420px;
+      animation:fadeUp .6s .05s ease both;">
+      Theo Thông tư 152/2025/TT-BTC của Bộ Tài Chính
+    </div>
+
+    <h1 style="animation:fadeUp .7s .1s ease both;">Sổ Doanh Thu<br><span>Đúng Luật - Dùng Ngay</span></h1>
+
+    <!-- 3. 4 dòng — dấu -, 19px -->
+    <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:22px;
+      animation:fadeUp .7s .18s ease both;width:100%;max-width:360px;padding:0 4px;">
+      <div style="display:flex;align-items:baseline;gap:8px;font-size:19px;color:rgba(255,255,255,.88);line-height:1.4;white-space:nowrap;">
+        <span style="color:var(--gold);font-weight:700;flex-shrink:0;">-</span>Sổ S2a-HKD đúng trên điện thoại
+      </div>
+      <div style="display:flex;align-items:baseline;gap:8px;font-size:19px;color:rgba(255,255,255,.88);line-height:1.4;white-space:nowrap;">
+        <span style="color:var(--gold);font-weight:700;flex-shrink:0;">-</span>Tự động tính thuế GTGT &amp; TNCN
+      </div>
+      <div style="display:flex;align-items:baseline;gap:8px;font-size:19px;color:rgba(255,255,255,.88);line-height:1.4;white-space:nowrap;">
+        <span style="color:var(--gold);font-weight:700;flex-shrink:0;">-</span>Áp dụng cho nhiều ngành nghề
+      </div>
+      <div style="display:flex;align-items:baseline;gap:8px;font-size:19px;color:rgba(255,255,255,.88);line-height:1.4;white-space:nowrap;">
+        <span style="color:var(--gold);font-weight:700;flex-shrink:0;">-</span>Xuất PDF nộp thuế trong 30 giây
+      </div>
+    </div>
+
+    <!-- 4. NHÓM 2 -->
+    <div style="font-family:'Lexend',sans-serif;font-size:clamp(22px,5vw,30px);
+      font-weight:800;color:#fff;letter-spacing:.12em;text-align:center;
+      margin-bottom:20px;animation:fadeUp .7s .22s ease both;">
+      NHÓM 2
+    </div>
+
+    <!-- 5. Stats — số 27px, label 18px -->
+    <div class="hero-stats" style="animation:fadeUp .7s .28s ease both;">
+      <div class="hero-stat">
+        <strong style="font-size:27px;">500tr–3 tỷ</strong>
+        <span style="font-size:18px;">Nhóm doanh thu</span>
+      </div>
+      <div class="hero-stat">
+        <strong style="font-size:27px;">20/4/2026</strong>
+        <span style="font-size:18px;">Hạn nộp Quý 1</span>
+      </div>
+      <div class="hero-stat">
+        <strong style="font-size:27px;">30 giây</strong>
+        <span style="font-size:18px;">Xuất báo cáo</span>
+      </div>
+    </div>
+
+    <!-- 6. CTA — nút vàng 18px, "Dùng thử..." 17px -->
+    <div class="hero-cta" style="animation:fadeUp .7s .34s ease both;">
+      <a href="#pricing" class="btn-primary" style="font-size:18px;">Chọn gói — Dùng ngay →</a>
+      <a href="https://sodt.vercel.app" class="btn-ghost" target="_blank" style="font-size:17px;">Dùng thử miễn phí (không cần thanh toán)</a>
     </div>
   </div>
 </section>
@@ -279,10 +333,10 @@ footer a:hover{color:#fff;}
     <div class="section-label">Vấn đề thực tế</div>
     <h2 class="section-title">Hộ kinh doanh đang <span>khổ sở</span> với sổ sách 2026</h2>
     <div class="pain-grid">
-      <div class="pain-card"><div class="icon">😰</div><h3>Không biết ghi đúng Mẫu S2a</h3><p>TT152/2025 yêu cầu mẫu mới từ 1/1/2026, hầu hết chưa biết cách ghi.</p></div>
-      <div class="pain-card"><div class="icon">🧮</div><h3>Tính thuế TNCN sai = bị phạt</h3><p>Phải trừ 500tr/năm theo ngành thuế suất cao nhất — tính tay dễ nhầm.</p></div>
-      <div class="pain-card"><div class="icon">⏰</div><h3>Hạn nộp 20/4/2026 cận kề</h3><p>Chưa có sổ sách Quý 1 = nguy cơ bị phạt hành chính thuế.</p></div>
-      <div class="pain-card"><div class="icon">💸</div><h3>Kế toán dịch vụ quá đắt</h3><p>300–800K/tháng. Trong khi app này chỉ 29K/tháng — rẻ hơn 10–20 lần.</p></div>
+      <div class="pain-card"><div class="pain-card-hdr"><div class="icon">😰</div><h3>Không biết ghi đúng Mẫu S2a</h3></div><p>TT152/2025 yêu cầu mẫu mới từ 1/1/2026, hầu hết chưa biết cách ghi.</p></div>
+      <div class="pain-card"><div class="pain-card-hdr"><div class="icon">🧮</div><h3>Tính thuế TNCN sai = bị phạt</h3></div><p>Phải trừ 500tr/năm theo ngành thuế suất cao nhất — tính tay dễ nhầm.</p></div>
+      <div class="pain-card"><div class="pain-card-hdr"><div class="icon">⏰</div><h3>Hạn nộp 20/4/2026 cận kề</h3></div><p>Chưa có sổ sách Quý 1 = nguy cơ bị phạt hành chính thuế.</p></div>
+      <div class="pain-card"><div class="pain-card-hdr"><div class="icon">💸</div><h3>Kế toán dịch vụ quá đắt</h3></div><p>300–800K/tháng. Trong khi app này chỉ 29K/tháng — rẻ hơn 10–20 lần.</p></div>
     </div>
   </div>
 </section>
@@ -293,12 +347,12 @@ footer a:hover{color:#fff;}
     <div class="section-label">Tính năng</div>
     <h2 class="section-title">Tất cả trong <span>1 app nhỏ gọn</span></h2>
     <div class="features-grid">
-      <div class="feat-card"><div class="feat-icon">📱</div><h3>Không cần cài đặt</h3><p>Mở trình duyệt là dùng. iOS, Android, máy tính đều chạy mượt.</p></div>
-      <div class="feat-card"><div class="feat-icon">🧾</div><h3>Chuẩn Mẫu S2a-HKD</h3><p>Đúng định dạng TT152/2025. Bản in nộp cơ quan thuế được ngay.</p></div>
-      <div class="feat-card"><div class="feat-icon">🧮</div><h3>Tự động tính thuế</h3><p>GTGT & TNCN theo từng ngành, đúng logic trừ 500tr/năm ưu tiên thuế suất cao.</p></div>
-      <div class="feat-card"><div class="feat-icon">📊</div><h3>Xuất Excel & PDF</h3><p>1 bấm có file nộp thuế. Excel định dạng màu đẹp, PDF in ngay.</p></div>
-      <div class="feat-card"><div class="feat-icon">☁️</div><h3>Lưu theo Gmail</h3><p>Đổi điện thoại vẫn còn đủ dữ liệu. Không mất dữ liệu bao giờ.</p></div>
-      <div class="feat-card"><div class="feat-icon">🏪</div><h3>Nhiều ngành nghề</h3><p>Bán buôn, ăn uống, lưu trú, cho thuê... tự phân loại thuế suất đúng.</p></div>
+      <div class="feat-card"><div class="feat-card-hdr"><div class="feat-icon">📱</div><h3>Không cần cài đặt</h3></div><p>Mở trình duyệt là dùng. iOS, Android, máy tính đều chạy mượt.</p></div>
+      <div class="feat-card"><div class="feat-card-hdr"><div class="feat-icon">🧾</div><h3>Chuẩn Mẫu S2a-HKD</h3></div><p>Đúng định dạng TT152/2025. Bản in nộp cơ quan thuế được ngay.</p></div>
+      <div class="feat-card"><div class="feat-card-hdr"><div class="feat-icon">🧮</div><h3>Tự động tính thuế</h3></div><p>GTGT & TNCN theo từng ngành, đúng logic trừ 500tr/năm ưu tiên thuế suất cao.</p></div>
+      <div class="feat-card"><div class="feat-card-hdr"><div class="feat-icon">📊</div><h3>Xuất Excel & PDF</h3></div><p>1 bấm có file nộp thuế. Excel định dạng màu đẹp, PDF in ngay.</p></div>
+      <div class="feat-card"><div class="feat-card-hdr"><div class="feat-icon">☁️</div><h3>Lưu theo Gmail</h3></div><p>Đổi điện thoại vẫn còn đủ dữ liệu. Không mất dữ liệu bao giờ.</p></div>
+      <div class="feat-card"><div class="feat-card-hdr"><div class="feat-icon">🏪</div><h3>Nhiều ngành nghề</h3></div><p>Bán buôn, ăn uống, lưu trú, cho thuê... tự phân loại thuế suất đúng.</p></div>
     </div>
   </div>
 </section>
@@ -344,7 +398,7 @@ footer a:hover{color:#fff;}
         <div class="plan-badge">⭐ PHỔ BIẾN NHẤT</div>
         <div class="plan-name">📅 Theo tháng</div>
         <div class="plan-price"><strong id="price-display">29.000đ</strong><span id="period-display">/tháng</span></div>
-        <div class="plan-alt" id="alt-display">hoặc 50.000đ / 3 tháng — tiết kiệm 37K</div>
+        <div class="plan-alt" id="alt-display">hoặc 60.000đ / 3 tháng — tiết kiệm 27K</div>
         <div class="plan-save">≈ 1.000đ/ngày — rẻ hơn 1 ly trà đá</div>
         <ul class="plan-features">
           <li>Tất cả tính năng Miễn phí</li>
@@ -449,17 +503,24 @@ footer a:hover{color:#fff;}
     <div id="period-sel" style="margin-bottom:16px;">
       <div class="mlabel">Chọn kỳ thanh toán</div>
       <div class="tab-row">
-        <button class="tab-btn active" onclick="setPeriod(this,1,29000,'Gói 1 tháng','29.000đ','/tháng','hoặc 50.000đ / 3 tháng — tiết kiệm 37K')">
+        <button class="tab-btn active" onclick="setPeriod(this,1,29000,'Gói 1 tháng','29.000đ','/tháng','hoặc 60.000đ / 3 tháng — tiết kiệm 27K')">
           1 tháng<br><small style="font-size:10px;font-weight:400;">29.000đ</small>
         </button>
-        <button class="tab-btn" onclick="setPeriod(this,3,50000,'Gói 3 tháng','50.000đ','/3 tháng','= 16.600đ/tháng — tiết kiệm 37.000đ')">
-          3 tháng<br><small style="font-size:10px;font-weight:700;color:#0d8a3a;">Tiết kiệm 37K</small>
+        <button class="tab-btn" onclick="setPeriod(this,3,60000,'Gói 3 tháng','60.000đ','/3 tháng','= 20.000đ/tháng — tiết kiệm 27.000đ')">
+          3 tháng<br><small style="font-size:10px;font-weight:700;color:#0d8a3a;">Tiết kiệm 27K</small>
         </button>
       </div>
     </div>
 
     <div class="mlabel">Gmail của bạn</div>
-    <input class="minput" type="email" id="inp-email" placeholder="ten@gmail.com" inputmode="email" autocomplete="email">
+    <div style="display:flex;align-items:center;border:1.5px solid #d0d0d0;border-radius:10px;overflow:hidden;margin-bottom:14px;transition:border-color .15s;background:#fff;" id="email-wrap">
+      <input style="flex:1;min-width:0;padding:11px 4px 11px 13px;border:none;font-family:inherit;font-size:14px;outline:none;color:#0a1f10;background:transparent;transition:flex .3s ease;width:0;" type="text" id="inp-email" placeholder="tên đăng nhập" inputmode="email" autocomplete="username"
+        oninput="syncEmail()"
+        onfocus="this.style.flex='1';document.getElementById('email-wrap').style.borderColor='#0d4a28'"
+        onblur="shrinkEmail(this)">
+      <span id="gmail-suffix" style="padding:11px 13px 11px 2px;font-size:14px;color:#4a6b55;font-weight:600;background:transparent;white-space:nowrap;flex-shrink:0;transition:opacity .2s;">@gmail.com</span>
+    </div>
+    <input type="hidden" id="inp-email-full">
     <button class="btn-confirm" onclick="goStep2()">Tiếp tục → Xem thông tin thanh toán</button>
     <p class="mnote">Mã kích hoạt gửi về Gmail trong 1–5 phút sau khi hệ thống xác nhận thanh toán.</p>
   </div>
@@ -478,19 +539,27 @@ footer a:hover{color:#fff;}
 
     <!-- BANK TAB -->
     <div id="pay-bank">
-      <!-- VietQR tự động -->
+      <!-- VietQR tự động có nội dung CK nhúng sẵn -->
       <div class="qr-wrap">
-        <img id="vietqr-img" src="" alt="QR chuyển khoản" onerror="this.parentElement.style.display='none'">
-        <p class="qr-note">Quét QR bằng app ngân hàng bất kỳ để chuyển khoản tự động</p>
+        <div style="position:relative;display:inline-block;">
+          <img id="vietqr-img" src="" alt="QR chuyển khoản" style="width:200px;height:200px;border-radius:12px;border:2px solid #c8e6c9;display:block;">
+          <div id="qr-loading" style="position:absolute;inset:0;background:#f4faf6;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+            <div style="width:32px;height:32px;border:3px solid #c8e6c9;border-top-color:#0d4a28;border-radius:50%;animation:spin .8s linear infinite;"></div>
+            <span style="font-size:11px;color:#4a6b55;">Đang tạo QR...</span>
+          </div>
+        </div>
+        <p class="qr-note" style="margin-top:10px;">📲 Quét bằng app <strong>bất kỳ ngân hàng</strong> — số tiền & nội dung tự điền sẵn</p>
       </div>
       <div class="transfer-box">
         <div class="trow"><label>Ngân hàng</label><strong id="b-bank">ACB</strong></div>
-        <div class="trow"><label>Số tài khoản</label><strong><span id="b-stk"><!-- ĐIỀN STK --></span><button class="copy-btn" onclick="copyVal('b-stk')">Sao chép</button></strong></div>
-        <div class="trow"><label>Chủ tài khoản</label><strong id="b-owner"><!-- ĐIỀN TÊN --></strong></div>
-        <div class="trow"><label>Số tiền</label><strong id="b-amount"></strong></div>
-        <div class="trow"><label>Nội dung CK</label><strong><span id="b-content"></span><button class="copy-btn" onclick="copyVal('b-content')">Sao chép</button></strong></div>
+        <div class="trow"><label>Số tài khoản</label><strong><span id="b-stk"></span><button class="copy-btn" onclick="copyVal('b-stk')">Sao chép</button></strong></div>
+        <div class="trow"><label>Chủ tài khoản</label><strong id="b-owner"></strong></div>
+        <div class="trow"><label>Số tiền</label><strong id="b-amount" style="color:#0d4a28;"></strong></div>
+        <div class="trow"><label>Nội dung CK</label><strong><span id="b-content" style="color:#0d4a28;font-family:monospace;"></span><button class="copy-btn" onclick="copyVal('b-content')">Sao chép</button></strong></div>
       </div>
-      <div class="warn-box">⚠️ <strong>Ghi đúng nội dung</strong> chuyển khoản để hệ thống tự động xác nhận. Sai nội dung sẽ phải xác nhận thủ công qua Zalo.</div>
+      <div style="background:#e8f5ee;border-radius:8px;padding:10px 12px;font-size:12px;color:#2d6a4f;margin-bottom:12px;">
+        ✅ QR đã nhúng sẵn số tiền và nội dung — chỉ cần <strong>quét và xác nhận</strong>, không cần nhập gì thêm.
+      </div>
     </div>
 
     <!-- MOMO TAB -->
@@ -541,13 +610,39 @@ const CFG = {
 const PLANS = {
   free:      {name:'Gói Miễn phí',  price:0,      label:'0đ'},
   monthly:   {name:'Gói 1 tháng',   price:29000,  label:'29.000đ', months:1},
-  quarterly: {name:'Gói 3 tháng',   price:50000,  label:'50.000đ', months:3},
+  quarterly: {name:'Gói 3 tháng',   price:60000,  label:'60.000đ', months:3},
   lifetime:  {name:'Gói Vĩnh viễn', price:199000, label:'199.000đ'},
 };
 
 let _plan='monthly', _price=29000, _email='', _months=1;
 
 function fvnd(n){return n.toLocaleString('vi-VN')+'đ';}
+
+/* ── Sync email: username + @gmail.com ── */
+function syncEmail(){
+  const u=document.getElementById('inp-email').value.trim().toLowerCase().replace(/\s/g,'');
+  document.getElementById('inp-email-full').value=u?u+'@gmail.com':'';
+}
+function getEmail(){
+  return document.getElementById('inp-email-full').value.trim();
+}
+/* Khi rời focus: co input lại vừa khít chữ, @gmail.com sát ngay bên cạnh */
+function shrinkEmail(inp){
+  document.getElementById('email-wrap').style.borderColor='#d0d0d0';
+  const val = inp.value.trim();
+  if(val){
+    /* Đo độ rộng text bằng canvas để set width chính xác */
+    const canvas = shrinkEmail._canvas || (shrinkEmail._canvas = document.createElement('canvas'));
+    const ctx = canvas.getContext('2d');
+    ctx.font = '14px "Be Vietnam Pro", sans-serif';
+    const tw = ctx.measureText(val).width;
+    inp.style.flex = 'none';
+    inp.style.width = Math.ceil(tw + 28) + 'px'; /* 28px = padding trái + phải */
+  } else {
+    inp.style.flex = '1';
+    inp.style.width = '';
+  }
+}
 
 /* Countdown */
 function updateCountdown(){
@@ -578,9 +673,12 @@ function openModal(plan){
   document.getElementById('s1-price').textContent=p.label;
   document.getElementById('period-sel').style.display=plan==='monthly'?'':'none';
   document.getElementById('inp-email').value='';
-  document.getElementById('inp-email').classList.remove('err');
+  document.getElementById('inp-email-full').value='';
+  document.getElementById('inp-email').style.borderColor='';
+  document.getElementById('email-wrap').style.borderColor='#d0d0d0';
   document.getElementById('payModal').classList.add('open');
   document.body.style.overflow='hidden';
+  setTimeout(()=>document.getElementById('inp-email').focus(),200);
 }
 function closeModal(){
   document.getElementById('payModal').classList.remove('open');
@@ -594,22 +692,21 @@ function setPeriod(btn,months,price,name,label,perStr,altStr){
   _plan=months===3?'quarterly':'monthly';
   document.getElementById('s1-pname').textContent=name;
   document.getElementById('s1-price').textContent=label;
-  /* Cập nhật card hiển thị */
   document.getElementById('price-display').textContent=label;
   document.getElementById('period-display').textContent=perStr;
   document.getElementById('alt-display').textContent=altStr;
 }
 
 function goStep2(){
-  const em=document.getElementById('inp-email').value.trim();
-  if(!em||!em.includes('@')||!em.includes('.')){
-    document.getElementById('inp-email').classList.add('err');
-    document.getElementById('inp-email').focus();return;
+  const username=document.getElementById('inp-email').value.trim().toLowerCase().replace(/\s/g,'');
+  if(!username || username.length < 3){
+    document.getElementById('email-wrap').style.borderColor='#c0392b';
+    document.getElementById('inp-email').focus(); return;
   }
-  document.getElementById('inp-email').classList.remove('err');
-  _email=em;
+  document.getElementById('email-wrap').style.borderColor='#0d4a28';
+  _email = username+'@gmail.com';
   const p=PLANS[_plan];
-  const content=makeContent(em);
+  const content=makeContent(_email);
 
   /* Điền step 2 */
   document.getElementById('s2-pname').textContent=p.name;
@@ -623,9 +720,14 @@ function goStep2(){
   document.getElementById('m-amount').textContent=fvnd(_price);
   document.getElementById('m-content').textContent=content;
 
-  /* VietQR tự động */
+  /* VietQR — nhúng sẵn số tiền + nội dung CK */
   const qrUrl=`https://img.vietqr.io/image/${CFG.bankBIN}-${CFG.bankSTK}-compact2.png?amount=${_price}&addInfo=${encodeURIComponent(content)}&accountName=${encodeURIComponent(CFG.bankOwner)}`;
-  document.getElementById('vietqr-img').src=qrUrl;
+  const qrImg=document.getElementById('vietqr-img');
+  const qrLoad=document.getElementById('qr-loading');
+  if(qrLoad) qrLoad.style.display='flex';
+  qrImg.onload=()=>{ if(qrLoad) qrLoad.style.display='none'; };
+  qrImg.onerror=()=>{ if(qrLoad) qrLoad.innerHTML='<span style="font-size:11px;color:#c0392b;">Không tải được QR<br>Dùng thông tin bên dưới</span>'; };
+  qrImg.src=qrUrl;
 
   document.getElementById('s1').style.display='none';
   document.getElementById('s2').style.display='';
