@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sổ Doanh Thu S2a — Đúng Luật 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══ CONFIG THANH TOÁN — CHỈ SỬA PHẦN NÀY ══
+   Điền thông tin thật của bạn vào đây trước khi deploy
+   ================================================= */
+:root {
+  --bank-name:    "MB Bank";           /* Tên ngân hàng */
+  --bank-stk:     "ĐIỀN_STK_VÀO_ĐÂY"; /* Số tài khoản  */
+  --bank-owner:   "ĐIỀN_TÊN_VÀO_ĐÂY"; /* Tên chủ TK    */
+  --zalo-phone:   "0877382434";        /* SĐT Zalo hỗ trợ */
+  --support-phone:"0779390908";        /* SĐT gọi       */
+  --app-url:      "https://sodt.vercel.app";
+
+  /* Design tokens */
+  --g:#0d4a28;--g2:#1a6b3a;--g3:#e8f5ee;
+  --red:#c0392b;--gold:#f0a500;
+  --ink:#0a1f10;--muted:#4a6b55;
+  --bg:#f4faf6;--radius:14px;
+  --shadow:0 8px 32px rgba(13,74,40,.13);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;}
+
+/* ══ HERO ══ */
+.hero{background:var(--g);min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:48px 20px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(26,107,58,.7),transparent 70%),
+             radial-gradient(ellipse 50% 40% at 90% 80%,rgba(240,165,0,.08),transparent 60%);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:600;
+  letter-spacing:.06em;padding:5px 14px;border-radius:20px;margin-bottom:20px;
+  backdrop-filter:blur(8px);animation:fadeUp .6s ease both;}
+.hero h1{font-family:'Lexend',sans-serif;font-size:clamp(28px,7vw,52px);font-weight:800;
+  color:#fff;text-align:center;line-height:1.15;max-width:700px;margin-bottom:16px;
+  animation:fadeUp .7s .1s ease both;}
+.hero h1 span{color:var(--gold);}
+.hero-sub{font-size:clamp(14px,3.5vw,17px);color:rgba(255,255,255,.8);text-align:center;
+  max-width:520px;line-height:1.7;margin-bottom:32px;animation:fadeUp .7s .2s ease both;}
+.hero-stats{display:flex;gap:28px;margin-bottom:36px;flex-wrap:wrap;justify-content:center;
+  animation:fadeUp .7s .3s ease both;}
+.hero-stat{text-align:center;}
+.hero-stat strong{display:block;font-family:'Lexend',sans-serif;font-size:22px;font-weight:700;color:var(--gold);}
+.hero-stat span{font-size:11px;color:rgba(255,255,255,.6);font-weight:500;}
+.hero-cta{display:flex;flex-direction:column;align-items:center;gap:12px;animation:fadeUp .7s .4s ease both;}
+.btn-primary{background:var(--gold);color:#0a1f10;font-family:'Lexend',sans-serif;font-size:16px;
+  font-weight:700;padding:15px 40px;border-radius:50px;border:none;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;box-shadow:0 4px 20px rgba(240,165,0,.4);
+  text-decoration:none;display:inline-block;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,165,0,.5);}
+.btn-ghost{color:rgba(255,255,255,.7);font-size:13px;text-decoration:none;}
+.btn-ghost:hover{color:#fff;}
+.countdown{background:rgba(192,57,43,.9);color:#fff;text-align:center;padding:10px 20px;
+  font-size:13px;font-weight:600;letter-spacing:.03em;border-bottom:1px solid rgba(255,255,255,.1);}
+.countdown span{color:var(--gold);font-size:16px;font-weight:800;}
+
+/* ══ SECTIONS ══ */
+section{padding:64px 20px;}
+.container{max-width:860px;margin:0 auto;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g2);margin-bottom:8px;}
+.section-title{font-family:'Lexend',sans-serif;font-size:clamp(22px,5vw,34px);font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:12px;}
+.section-title span{color:var(--g);}
+.section-sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:560px;}
+
+/* ══ PAIN ══ */
+.pain{background:#fff;}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:36px;}
+.pain-card{background:var(--bg);border-radius:var(--radius);padding:20px;border-left:3px solid var(--red);}
+.pain-card .icon{font-size:24px;margin-bottom:8px;}
+.pain-card h3{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.pain-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* ══ FEATURES ══ */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:36px;}
+.feat-card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
+.feat-icon{width:40px;height:40px;background:var(--g3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:10px;}
+.feat-card h3{font-size:14px;font-weight:700;margin-bottom:5px;}
+.feat-card p{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+/* ══ PRICING ══ */
+.pricing{background:var(--g);padding:72px 20px;}
+.pricing .section-label{color:rgba(255,255,255,.6);}
+.pricing .section-title{color:#fff;}
+.pricing .section-sub{color:rgba(255,255,255,.7);}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:44px;}
+.plan{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:20px;
+  padding:28px 24px;position:relative;transition:transform .2s;backdrop-filter:blur(8px);}
+.plan:hover{transform:translateY(-4px);}
+.plan.featured{background:#fff;border-color:var(--gold);box-shadow:0 0 0 3px rgba(240,165,0,.3),0 20px 50px rgba(0,0,0,.3);}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);
+  color:#0a1f10;font-size:10px;font-weight:800;padding:3px 14px;border-radius:20px;white-space:nowrap;}
+.plan-name{font-family:'Lexend',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;}
+.plan.featured .plan-name{color:var(--ink);}
+.plan-price strong{font-family:'Lexend',sans-serif;font-size:32px;font-weight:800;color:var(--gold);}
+.plan.featured .plan-price strong{color:var(--g);}
+.plan-price span{font-size:13px;color:rgba(255,255,255,.6);margin-left:4px;}
+.plan.featured .plan-price span{color:var(--muted);}
+.plan-alt{display:block;font-size:12px;color:rgba(255,255,255,.5);margin-top:3px;margin-bottom:12px;}
+.plan.featured .plan-alt{color:var(--muted);}
+.plan-save{display:inline-block;background:rgba(240,165,0,.15);color:var(--gold);
+  font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:14px;}
+.plan.featured .plan-save{background:rgba(13,74,40,.1);color:var(--g);}
+.plan-features{list-style:none;margin-bottom:22px;}
+.plan-features li{font-size:13px;padding:5px 0;display:flex;align-items:flex-start;gap:8px;
+  color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.07);}
+.plan.featured .plan-features li{color:var(--ink);border-bottom-color:rgba(13,74,40,.08);}
+.plan-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
+.plan-features li.no{color:rgba(255,255,255,.3);}
+.plan-features li.no::before{content:'—';color:rgba(255,255,255,.2);}
+.plan.featured .plan-features li.no{color:#ccc;}
+.plan.featured .plan-features li.no::before{color:#ccc;}
+.btn-plan{width:100%;padding:12px;border-radius:50px;border:none;font-family:'Lexend',sans-serif;
+  font-size:14px;font-weight:700;cursor:pointer;transition:transform .15s,opacity .15s;}
+.btn-plan:hover{transform:scale(1.02);}
+.btn-free{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);}
+.btn-month{background:var(--gold);color:#0a1f10;}
+.btn-lifetime{background:var(--g);color:#fff;}
+
+/* ══ STEPS ══ */
+.steps{display:flex;flex-direction:column;gap:0;margin-top:40px;position:relative;}
+.steps::before{content:'';position:absolute;left:23px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--g3),var(--g),var(--g3));border-radius:2px;}
+.step{display:flex;gap:20px;align-items:flex-start;padding-bottom:28px;position:relative;}
+.step-num{width:46px;height:46px;border-radius:50%;background:var(--g);color:#fff;
+  font-family:'Lexend',sans-serif;font-size:16px;font-weight:700;display:flex;
+  align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;
+  box-shadow:0 4px 14px rgba(13,74,40,.3);}
+.step-body h3{font-size:15px;font-weight:700;padding-top:10px;margin-bottom:4px;}
+.step-body p{font-size:13px;color:var(--muted);line-height:1.65;}
+
+/* ══ TESTIMONIALS ══ */
+.testi{background:#fff;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:36px;}
+.testi-card{background:var(--bg);border-radius:var(--radius);padding:20px;}
+.stars{color:var(--gold);font-size:14px;margin-bottom:8px;}
+.testi-text{font-size:13.5px;line-height:1.7;font-style:italic;margin-bottom:12px;}
+.testi-author{display:flex;align-items:center;gap:10px;}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--g);color:#fff;
+  font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.tname{font-size:13px;font-weight:700;}
+.trole{font-size:11px;color:var(--muted);}
+
+/* ══ FAQ ══ */
+.faq-list{margin-top:32px;display:flex;flex-direction:column;gap:8px;}
+.faq-item{background:#fff;border-radius:12px;border:1px solid rgba(13,74,40,.08);}
+.faq-q{width:100%;padding:15px 18px;text-align:left;background:none;border:none;
+  font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-q .arr{transition:transform .25s;font-size:11px;color:var(--muted);flex-shrink:0;}
+.faq-item.open .faq-q .arr{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+.faq-item.open .faq-a{max-height:220px;}
+.faq-a p{padding:0 18px 14px;font-size:13.5px;color:var(--muted);line-height:1.7;}
+
+/* ══ CTA BOTTOM ══ */
+.cta-bottom{background:linear-gradient(135deg,var(--g),var(--g2));padding:72px 20px;text-align:center;}
+.cta-bottom h2{font-family:'Lexend',sans-serif;font-size:clamp(22px,5vw,34px);font-weight:800;color:#fff;margin-bottom:10px;}
+.cta-bottom p{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:28px;}
+
+/* ══ FOOTER ══ */
+footer{background:#071a0e;padding:28px 20px;text-align:center;}
+footer p{font-size:12px;color:rgba(255,255,255,.4);line-height:2.2;}
+footer a{color:rgba(255,255,255,.55);text-decoration:none;}
+footer a:hover{color:#fff;}
+
+/* ══ STICKY BAR ══ */
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;
+  border-top:1px solid rgba(13,74,40,.12);padding:10px 16px 16px;z-index:100;
+  display:none;align-items:center;justify-content:space-between;gap:12px;
+  box-shadow:0 -4px 20px rgba(0,0,0,.1);}
+.sticky-left{font-size:12px;color:var(--muted);line-height:1.4;}
+.sticky-left strong{display:block;font-size:14px;color:var(--ink);font-weight:700;}
+.btn-sticky{background:var(--g);color:#fff;font-family:'Lexend',sans-serif;font-size:14px;
+  font-weight:700;padding:11px 22px;border-radius:50px;border:none;cursor:pointer;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(13,74,40,.3);}
+
+/* ══ MODAL ══ */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(6px);
+  z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;
+  opacity:0;pointer-events:none;transition:opacity .25s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:#fff;border-radius:24px;width:100%;max-width:420px;padding:28px 24px;
+  position:relative;max-height:92vh;overflow-y:auto;
+  transform:translateY(24px);transition:transform .25s;box-shadow:0 30px 80px rgba(0,0,0,.3);}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-close{position:absolute;top:14px;right:14px;background:var(--bg);border:none;
+  border-radius:50%;width:30px;height:30px;font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--muted);}
+.mh2{font-family:'Lexend',sans-serif;font-size:19px;font-weight:700;margin-bottom:4px;}
+.mdesc{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.plan-summary{background:var(--g3);border-radius:10px;padding:11px 15px;
+  margin-bottom:18px;display:flex;justify-content:space-between;align-items:center;}
+.plan-summary span{font-size:13px;font-weight:600;color:var(--g);}
+.plan-summary strong{font-family:'Lexend',sans-serif;font-size:20px;font-weight:800;color:var(--g);}
+.mlabel{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;}
+.minput{width:100%;padding:11px 13px;border:1.5px solid #d0d0d0;border-radius:10px;
+  font-family:inherit;font-size:14px;outline:none;transition:border-color .15s;margin-bottom:14px;}
+.minput:focus{border-color:var(--g);}
+.minput.err{border-color:var(--red);}
+.tab-row{display:flex;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:16px;}
+.tab-btn{flex:1;padding:8px 4px;border:none;border-radius:8px;background:none;
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;text-align:center;}
+.tab-btn.active{background:#fff;color:var(--g);box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.transfer-box{background:var(--g3);border-radius:12px;padding:14px;margin-bottom:14px;}
+.trow{display:flex;justify-content:space-between;align-items:center;padding:5px 0;}
+.trow:not(:last-child){border-bottom:1px solid rgba(13,74,40,.1);}
+.trow label{font-size:12px;color:var(--muted);}
+.trow strong{font-size:13px;font-weight:700;color:var(--ink);}
+.copy-btn{background:none;border:1px solid var(--g);color:var(--g);font-size:11px;
+  padding:2px 8px;border-radius:5px;cursor:pointer;font-family:inherit;margin-left:6px;flex-shrink:0;}
+.copy-btn:active{background:var(--g3);}
+.qr-wrap{text-align:center;margin-bottom:14px;}
+.qr-wrap img{width:180px;height:180px;border-radius:12px;border:2px solid var(--g3);}
+.qr-note{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;}
+.warn-box{background:#fff8e1;border-radius:8px;padding:10px 12px;font-size:12px;color:#7a5800;margin-bottom:12px;}
+.btn-confirm{width:100%;padding:13px;background:var(--g);color:#fff;font-family:'Lexend',sans-serif;
+  font-size:15px;font-weight:700;border:none;border-radius:50px;cursor:pointer;
+  box-shadow:0 4px 16px rgba(13,74,40,.25);transition:transform .15s;display:block;text-align:center;text-decoration:none;}
+.btn-confirm:hover{transform:scale(1.01);}
+.mnote{font-size:11.5px;color:var(--muted);text-align:center;margin-top:10px;line-height:1.65;}
+
+/* Success step */
+.success-icon{font-size:52px;text-align:center;margin-bottom:12px;}
+.success-msg{font-size:13.5px;color:var(--muted);text-align:center;line-height:1.7;margin-bottom:20px;}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+@media(min-width:640px){
+  .hero{flex-direction:row;gap:48px;text-align:left;}
+  .hero h1,.hero-sub{text-align:left;}
+  .hero-stats{justify-content:flex-start;}
+  .hero-cta{align-items:flex-start;}
+}
+@media(max-width:480px){
+  .plans{grid-template-columns:1fr;}
+  .sticky-bar{padding:8px 12px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown" id="countdown-bar">
+  ⏰ Hạn nộp thuế Quý 1/2026: <span id="countdown-text">đang tính...</span> — Bắt đầu ghi sổ ngay!
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:0;">
+    <div class="hero-badge" style="animation:fadeUp .6s ease both">🆕 Theo Thông tư 152/2025/TT-BTC · Hiệu lực 01/01/2026</div>
+    <h1>Sổ Doanh Thu<br><span>Đúng Luật. Dùng Ngay.</span><br>Không Cần Cài App.</h1>
+    <p class="hero-sub">Ghi sổ S2a-HKD chuẩn pháp lý ngay trên điện thoại. Tự động tính thuế GTGT & TNCN. Xuất PDF nộp thuế trong 30 giây.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>500tr–3 tỷ</strong><span>Nhóm doanh thu</span></div>
+      <div class="hero-stat"><strong>20/4/2026</strong><span>Hạn nộp Quý 1</span></div>
+      <div class="hero-stat"><strong>30 giây</strong><span>Xuất báo cáo</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn-primary">Chọn gói — Dùng ngay →</a>
+      <a href="https://sodt.vercel.app" class="btn-ghost" target="_blank">Dùng thử miễn phí (không cần thanh toán)</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="container reveal">
+    <div class="section-label">Vấn đề thực tế</div>
+    <h2 class="section-title">Hộ kinh doanh đang <span>khổ sở</span> với sổ sách 2026</h2>
+    <div class="pain-grid">
+      <div class="pain-card"><div class="icon">😰</div><h3>Không biết ghi đúng Mẫu S2a</h3><p>TT152/2025 yêu cầu mẫu mới từ 1/1/2026, hầu hết chưa biết cách ghi.</p></div>
+      <div class="pain-card"><div class="icon">🧮</div><h3>Tính thuế TNCN sai = bị phạt</h3><p>Phải trừ 500tr/năm theo ngành thuế suất cao nhất — tính tay dễ nhầm.</p></div>
+      <div class="pain-card"><div class="icon">⏰</div><h3>Hạn nộp 20/4/2026 cận kề</h3><p>Chưa có sổ sách Quý 1 = nguy cơ bị phạt hành chính thuế.</p></div>
+      <div class="pain-card"><div class="icon">💸</div><h3>Kế toán dịch vụ quá đắt</h3><p>300–800K/tháng. Trong khi app này chỉ 29K/tháng — rẻ hơn 10–20 lần.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="container reveal">
+    <div class="section-label">Tính năng</div>
+    <h2 class="section-title">Tất cả trong <span>1 app nhỏ gọn</span></h2>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon">📱</div><h3>Không cần cài đặt</h3><p>Mở trình duyệt là dùng. iOS, Android, máy tính đều chạy mượt.</p></div>
+      <div class="feat-card"><div class="feat-icon">🧾</div><h3>Chuẩn Mẫu S2a-HKD</h3><p>Đúng định dạng TT152/2025. Bản in nộp cơ quan thuế được ngay.</p></div>
+      <div class="feat-card"><div class="feat-icon">🧮</div><h3>Tự động tính thuế</h3><p>GTGT & TNCN theo từng ngành, đúng logic trừ 500tr/năm ưu tiên thuế suất cao.</p></div>
+      <div class="feat-card"><div class="feat-icon">📊</div><h3>Xuất Excel & PDF</h3><p>1 bấm có file nộp thuế. Excel định dạng màu đẹp, PDF in ngay.</p></div>
+      <div class="feat-card"><div class="feat-icon">☁️</div><h3>Lưu theo Gmail</h3><p>Đổi điện thoại vẫn còn đủ dữ liệu. Không mất dữ liệu bao giờ.</p></div>
+      <div class="feat-card"><div class="feat-icon">🏪</div><h3>Nhiều ngành nghề</h3><p>Bán buôn, ăn uống, lưu trú, cho thuê... tự phân loại thuế suất đúng.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background:#fff;">
+  <div class="container reveal">
+    <div class="section-label">Cách dùng</div>
+    <h2 class="section-title">Bắt đầu trong <span>3 bước</span></h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Chọn gói & thanh toán</h3><p>Chuyển khoản ngân hàng hoặc MoMo. Hệ thống tự xác nhận trong 1–5 phút, gửi mã kích hoạt về Gmail.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Nhập doanh thu mỗi ngày</h3><p>Chọn ngành, nhập số tiền, phân loại TM/CK. Hệ thống tự tính thuế realtime.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Xuất báo cáo nộp thuế</h3><p>Bấm "Lưu/In" → PDF chuẩn S2a. Bấm "Excel" → file xlsx. Nộp cơ quan thuế là xong.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-label reveal">Bảng giá</div>
+    <h2 class="section-title reveal">Chọn gói phù hợp</h2>
+    <p class="section-sub reveal">Bắt đầu miễn phí. Nâng cấp khi cần.</p>
+    <div class="plans reveal">
+
+      <div class="plan">
+        <div class="plan-name">🆓 Miễn phí</div>
+        <div class="plan-price"><strong>0đ</strong><span>/ mãi mãi</span></div>
+        <ul class="plan-features">
+          <li>Ghi doanh thu không giới hạn</li>
+          <li>Phân loại TM / Chuyển khoản</li>
+          <li>Tính thuế GTGT & TNCN tự động</li>
+          <li>Xuất Excel quý hiện tại</li>
+          <li>Lưu dữ liệu theo Gmail</li>
+          <li class="no">Xuất PDF tất cả kỳ</li>
+          <li class="no">Nhiều ngành nghề</li>
+          <li class="no">Backup Google Sheets</li>
+        </ul>
+        <button class="btn-plan btn-free" onclick="openModal('free')">Dùng miễn phí</button>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-badge">⭐ PHỔ BIẾN NHẤT</div>
+        <div class="plan-name">📅 Theo tháng</div>
+        <div class="plan-price"><strong id="price-display">29.000đ</strong><span id="period-display">/tháng</span></div>
+        <div class="plan-alt" id="alt-display">hoặc 50.000đ / 3 tháng — tiết kiệm 37K</div>
+        <div class="plan-save">≈ 1.000đ/ngày — rẻ hơn 1 ly trà đá</div>
+        <ul class="plan-features">
+          <li>Tất cả tính năng Miễn phí</li>
+          <li>Xuất PDF/In tất cả các kỳ</li>
+          <li>Nhiều ngành nghề cùng lúc</li>
+          <li>Backup tự động Google Sheets</li>
+          <li>Nhắc nộp thuế đúng hạn</li>
+          <li>Hỗ trợ Zalo ưu tiên</li>
+        </ul>
+        <button class="btn-plan btn-month" onclick="openModal('monthly')">Mua ngay</button>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">♾️ Vĩnh viễn</div>
+        <div class="plan-price"><strong>199.000đ</strong><span>/ trọn đời</span></div>
+        <div class="plan-alt">= ~7 tháng — tiết kiệm 150K+/năm</div>
+        <div class="plan-save">1 lần trả, dùng mãi mãi</div>
+        <ul class="plan-features">
+          <li>Tất cả tính năng gói Tháng</li>
+          <li>Cập nhật theo luật mới miễn phí</li>
+          <li>Ưu tiên cao nhất khi hỗ trợ</li>
+          <li>Thêm tính năng mới trước tiên</li>
+        </ul>
+        <button class="btn-plan btn-lifetime" onclick="openModal('lifetime')">Mua vĩnh viễn</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="container reveal">
+    <div class="section-label">Đánh giá</div>
+    <h2 class="section-title">Hộ kinh doanh nói gì về <span>Sổ Doanh Thu</span></h2>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-text">"Trước tôi nhờ kế toán tính thuế tốn 300K/tháng. Giờ tự làm được hết, lại đúng luật mới 2026."</p><div class="testi-author"><div class="avatar">H</div><div><div class="tname">Chị Hoa</div><div class="trole">Quán ăn · Q.Bình Thạnh, TP.HCM</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★★</div><p class="testi-text">"Tôi có 3 ngành, app tự tính thuế từng ngành rất đúng. Xuất PDF nộp thuế luôn, tiện lắm."</p><div class="testi-author"><div class="avatar">T</div><div><div class="tname">Anh Tuấn</div><div class="trole">Kinh doanh hỗn hợp · Đà Nẵng</div></div></div></div>
+      <div class="testi-card"><div class="stars">★★★★☆</div><p class="testi-text">"Không cần cài app, mở điện thoại là dùng được luôn. Giao diện dễ, nhập số liệu nhanh."</p><div class="testi-author"><div class="avatar">L</div><div><div class="tname">Chị Linh</div><div class="trole">Cho thuê nhà trọ · Hà Nội</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:#fff;">
+  <div class="container reveal">
+    <div class="section-label">Câu hỏi thường gặp</div>
+    <h2 class="section-title">Giải đáp <span>thắc mắc</span></h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Tôi thuộc nhóm nào thì dùng được?<span class="arr">▼</span></button><div class="faq-a"><p>Dành cho Hộ/Cá nhân kinh doanh Nhóm 2 — doanh thu từ 500 triệu đến 3 tỷ đồng/năm. Đây là nhóm bắt buộc ghi sổ S2a-HKD theo TT152/2025 từ năm 2026.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Sau khi thanh toán bao lâu dùng được?<span class="arr">▼</span></button><div class="faq-a"><p>Ngay lập tức! Hệ thống tự động xác nhận chuyển khoản trong 1–5 phút. Mã kích hoạt gửi về Gmail. Nếu sau 10 phút chưa nhận — nhắn Zalo để được hỗ trợ tay.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Dữ liệu có an toàn không?<span class="arr">▼</span></button><div class="faq-a"><p>Dữ liệu gắn với Gmail của bạn, lưu trên Google Sheets riêng của bạn (gói trả phí). Không ai khác — kể cả chúng tôi — có thể xem dữ liệu của bạn.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">File PDF có nộp cơ quan thuế được không?<span class="arr">▼</span></button><div class="faq-a"><p>Có. Đúng Mẫu S2a-HKD theo TT152/2025/TT-BTC. In ra hoặc gửi file điện tử đều được.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Gói tháng có tự gia hạn không?<span class="arr">▼</span></button><div class="faq-a"><p>Không tự gia hạn. Bạn thanh toán từng kỳ theo ý muốn, không bị trừ tiền tự động.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BOTTOM -->
+<section class="cta-bottom reveal">
+  <div class="container">
+    <h2>⏰ Còn <span id="days-left" style="color:var(--gold);">?</span> ngày đến hạn nộp thuế Quý 1</h2>
+    <p>Bắt đầu ghi sổ ngay hôm nay — đừng để đến phút chót.</p>
+    <a href="#pricing" class="btn-primary">Chọn gói & bắt đầu ngay →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong style="color:rgba(255,255,255,.75);font-size:14px;">Sổ Doanh Thu S2a-HKD</strong><br>
+    Hỗ trợ: <a href="tel:0779390908">📞 0779 390 908</a> &nbsp;·&nbsp;
+    <a href="https://zalo.me/0877382434" target="_blank">💬 Zalo hỗ trợ</a><br>
+    Theo Thông tư 152/2025/TT-BTC &nbsp;·&nbsp; sodt.vercel.app<br>
+    <span style="font-size:11px;">© 2026 Sổ Doanh Thu. Bảo lưu mọi quyền.</span>
+  </p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-left">
+    <strong>⏰ Hạn nộp: 20/4/2026</strong>
+    Ghi sổ ngay hôm nay
+  </div>
+  <button class="btn-sticky" onclick="openModal('monthly')">Mua 29K/tháng</button>
+</div>
+
+<!-- ══ PAYMENT MODAL ══ -->
+<div class="modal-overlay" id="payModal" onclick="if(event.target===this)closeModal()">
+<div class="modal">
+  <button class="modal-close" onclick="closeModal()">✕</button>
+
+  <!-- STEP 1: Chọn gói & nhập email -->
+  <div id="s1">
+    <div class="mh2" id="s1-title">Đăng ký gói</div>
+    <p class="mdesc">Nhập Gmail để nhận mã kích hoạt</p>
+    <div class="plan-summary">
+      <span id="s1-pname">Gói 1 tháng</span>
+      <strong id="s1-price">29.000đ</strong>
+    </div>
+
+    <!-- Chọn kỳ (chỉ hiện cho gói tháng) -->
+    <div id="period-sel" style="margin-bottom:16px;">
+      <div class="mlabel">Chọn kỳ thanh toán</div>
+      <div class="tab-row">
+        <button class="tab-btn active" onclick="setPeriod(this,1,29000,'Gói 1 tháng','29.000đ','/tháng','hoặc 50.000đ / 3 tháng — tiết kiệm 37K')">
+          1 tháng<br><small style="font-size:10px;font-weight:400;">29.000đ</small>
+        </button>
+        <button class="tab-btn" onclick="setPeriod(this,3,50000,'Gói 3 tháng','50.000đ','/3 tháng','= 16.600đ/tháng — tiết kiệm 37.000đ')">
+          3 tháng<br><small style="font-size:10px;font-weight:700;color:#0d8a3a;">Tiết kiệm 37K</small>
+        </button>
+      </div>
+    </div>
+
+    <div class="mlabel">Gmail của bạn</div>
+    <input class="minput" type="email" id="inp-email" placeholder="ten@gmail.com" inputmode="email" autocomplete="email">
+    <button class="btn-confirm" onclick="goStep2()">Tiếp tục → Xem thông tin thanh toán</button>
+    <p class="mnote">Mã kích hoạt gửi về Gmail trong 1–5 phút sau khi hệ thống xác nhận thanh toán.</p>
+  </div>
+
+  <!-- STEP 2: Thông tin thanh toán -->
+  <div id="s2" style="display:none;">
+    <div class="mh2">Thanh toán</div>
+    <div class="plan-summary">
+      <span id="s2-pname"></span>
+      <strong id="s2-price"></strong>
+    </div>
+    <div class="tab-row">
+      <button class="tab-btn active" id="tab-bank" onclick="switchTab('bank')">🏦 Chuyển khoản</button>
+      <button class="tab-btn" id="tab-momo" onclick="switchTab('momo')">📱 MoMo</button>
+    </div>
+
+    <!-- BANK TAB -->
+    <div id="pay-bank">
+      <!-- VietQR tự động -->
+      <div class="qr-wrap">
+        <img id="vietqr-img" src="" alt="QR chuyển khoản" onerror="this.parentElement.style.display='none'">
+        <p class="qr-note">Quét QR bằng app ngân hàng bất kỳ để chuyển khoản tự động</p>
+      </div>
+      <div class="transfer-box">
+        <div class="trow"><label>Ngân hàng</label><strong id="b-bank">ACB</strong></div>
+        <div class="trow"><label>Số tài khoản</label><strong><span id="b-stk"><!-- ĐIỀN STK --></span><button class="copy-btn" onclick="copyVal('b-stk')">Sao chép</button></strong></div>
+        <div class="trow"><label>Chủ tài khoản</label><strong id="b-owner"><!-- ĐIỀN TÊN --></strong></div>
+        <div class="trow"><label>Số tiền</label><strong id="b-amount"></strong></div>
+        <div class="trow"><label>Nội dung CK</label><strong><span id="b-content"></span><button class="copy-btn" onclick="copyVal('b-content')">Sao chép</button></strong></div>
+      </div>
+      <div class="warn-box">⚠️ <strong>Ghi đúng nội dung</strong> chuyển khoản để hệ thống tự động xác nhận. Sai nội dung sẽ phải xác nhận thủ công qua Zalo.</div>
+    </div>
+
+    <!-- MOMO TAB -->
+    <div id="pay-momo" style="display:none;">
+      <div class="qr-wrap">
+        <img id="momo-qr-img" src="" alt="QR MoMo" style="border-radius:12px;width:170px;height:170px;" onerror="this.parentElement.style.display='none'">
+        <p class="qr-note">Quét QR bằng app MoMo để thanh toán</p>
+      </div>
+      <div class="transfer-box">
+        <div class="trow"><label>Số điện thoại MoMo</label><strong><span id="m-phone">0779 390 908</span><button class="copy-btn" onclick="copyVal('m-phone')">Sao chép</button></strong></div>
+        <div class="trow"><label>Số tiền</label><strong id="m-amount"></strong></div>
+        <div class="trow"><label>Nội dung</label><strong><span id="m-content"></span><button class="copy-btn" onclick="copyVal('m-content')">Sao chép</button></strong></div>
+      </div>
+    </div>
+
+    <button class="btn-confirm" style="margin-top:4px;" onclick="goStep3()">✓ Tôi đã chuyển tiền xong</button>
+    <p class="mnote">Hệ thống xác nhận trong <strong>1–5 phút</strong>. Nếu sau 10 phút chưa nhận mã — nhắn Zalo <a href="https://zalo.me/0877382434" target="_blank" style="color:var(--g);font-weight:700;">0877 382 434</a> để hỗ trợ ngay.</p>
+  </div>
+
+  <!-- STEP 3: Xác nhận đã chuyển -->
+  <div id="s3" style="display:none;text-align:center;padding:16px 0;">
+    <div class="success-icon">🎉</div>
+    <h3 style="font-family:'Lexend';font-size:19px;font-weight:700;margin-bottom:10px;">Cảm ơn bạn đã thanh toán!</h3>
+    <p class="success-msg">Chúng tôi đang xác nhận giao dịch.<br>Mã kích hoạt sẽ gửi về <strong id="s3-email"></strong><br>trong <strong>1–5 phút</strong>.</p>
+    <a href="https://sodt.vercel.app" class="btn-confirm" target="_blank">Vào dùng app ngay →</a>
+    <p class="mnote" style="margin-top:14px;">Chưa nhận mã sau 10 phút? Nhắn Zalo <a href="https://zalo.me/0877382434" target="_blank" style="color:var(--g);font-weight:700;">0877 382 434</a></p>
+  </div>
+</div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   CẤU HÌNH — ĐIỀN THÔNG TIN THẬT VÀO ĐÂY
+   ══════════════════════════════════════════ */
+const CFG = {
+  bankName:  'ACB',                  /* Tên ngân hàng */
+  bankBIN:   '970416',               /* ACB BIN — giữ nguyên                  */
+  bankSTK:   '18990641',
+  bankOwner: 'TRUONG VAN SON',
+  momoPhone: '0779390908',           /* ← SĐT MoMo (nếu có)                   */
+  zaloPho:   '0877382434',           /* ← SĐT Zalo hỗ trợ                     */
+  appUrl:    'https://sodt.vercel.app',
+  deadline:  new Date('2026-04-20T23:59:59'),
+};
+/* ════════════════════════════════════════ */
+
+/* Gói */
+const PLANS = {
+  free:      {name:'Gói Miễn phí',  price:0,      label:'0đ'},
+  monthly:   {name:'Gói 1 tháng',   price:29000,  label:'29.000đ', months:1},
+  quarterly: {name:'Gói 3 tháng',   price:50000,  label:'50.000đ', months:3},
+  lifetime:  {name:'Gói Vĩnh viễn', price:199000, label:'199.000đ'},
+};
+
+let _plan='monthly', _price=29000, _email='', _months=1;
+
+function fvnd(n){return n.toLocaleString('vi-VN')+'đ';}
+
+/* Countdown */
+function updateCountdown(){
+  const now=new Date(), diff=CFG.deadline-now;
+  if(diff<=0){document.getElementById('countdown-bar').textContent='⏰ Đã hết hạn nộp thuế Quý 1/2026';return;}
+  const d=Math.floor(diff/864e5), h=Math.floor(diff%864e5/36e5), m=Math.floor(diff%36e5/6e4);
+  document.getElementById('countdown-text').textContent=`${d} ngày ${h} giờ ${m} phút`;
+  const dl=document.getElementById('days-left');if(dl)dl.textContent=d;
+}
+updateCountdown();setInterval(updateCountdown,60000);
+
+/* Sticky bar */
+window.addEventListener('scroll',()=>{
+  document.getElementById('stickyBar').style.display=window.scrollY>350?'flex':'none';
+},{passive:true});
+
+/* Modal */
+function openModal(plan){
+  if(plan==='free'){window.open(CFG.appUrl,'_blank');return;}
+  _plan=plan;
+  const p=PLANS[plan];
+  _price=p.price; _months=p.months||1;
+  document.getElementById('s1').style.display='';
+  document.getElementById('s2').style.display='none';
+  document.getElementById('s3').style.display='none';
+  document.getElementById('s1-title').textContent='Đăng ký '+p.name;
+  document.getElementById('s1-pname').textContent=p.name;
+  document.getElementById('s1-price').textContent=p.label;
+  document.getElementById('period-sel').style.display=plan==='monthly'?'':'none';
+  document.getElementById('inp-email').value='';
+  document.getElementById('inp-email').classList.remove('err');
+  document.getElementById('payModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('payModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function setPeriod(btn,months,price,name,label,perStr,altStr){
+  document.querySelectorAll('#period-sel .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  _months=months; _price=price;
+  _plan=months===3?'quarterly':'monthly';
+  document.getElementById('s1-pname').textContent=name;
+  document.getElementById('s1-price').textContent=label;
+  /* Cập nhật card hiển thị */
+  document.getElementById('price-display').textContent=label;
+  document.getElementById('period-display').textContent=perStr;
+  document.getElementById('alt-display').textContent=altStr;
+}
+
+function goStep2(){
+  const em=document.getElementById('inp-email').value.trim();
+  if(!em||!em.includes('@')||!em.includes('.')){
+    document.getElementById('inp-email').classList.add('err');
+    document.getElementById('inp-email').focus();return;
+  }
+  document.getElementById('inp-email').classList.remove('err');
+  _email=em;
+  const p=PLANS[_plan];
+  const content=makeContent(em);
+
+  /* Điền step 2 */
+  document.getElementById('s2-pname').textContent=p.name;
+  document.getElementById('s2-price').textContent=p.label;
+  document.getElementById('b-bank').textContent=CFG.bankName;
+  document.getElementById('b-stk').textContent=CFG.bankSTK;
+  document.getElementById('b-owner').textContent=CFG.bankOwner;
+  document.getElementById('b-amount').textContent=fvnd(_price);
+  document.getElementById('b-content').textContent=content;
+  document.getElementById('m-phone').textContent=CFG.momoPhone.replace(/(\d{4})(\d{3})(\d{3})/,'$1 $2 $3');
+  document.getElementById('m-amount').textContent=fvnd(_price);
+  document.getElementById('m-content').textContent=content;
+
+  /* VietQR tự động */
+  const qrUrl=`https://img.vietqr.io/image/${CFG.bankBIN}-${CFG.bankSTK}-compact2.png?amount=${_price}&addInfo=${encodeURIComponent(content)}&accountName=${encodeURIComponent(CFG.bankOwner)}`;
+  document.getElementById('vietqr-img').src=qrUrl;
+
+  document.getElementById('s1').style.display='none';
+  document.getElementById('s2').style.display='';
+  switchTab('bank');
+}
+
+function makeContent(email){
+  /* Nội dung CK: SODT + mã gói + email rút gọn */
+  const prefix=_plan==='lifetime'?'VV':_plan==='quarterly'?'3T':'1T';
+  const shortEmail=email.split('@')[0].substring(0,10).toUpperCase().replace(/[^A-Z0-9]/g,'');
+  return `SODT${prefix} ${shortEmail}`;
+}
+
+function goStep3(){
+  document.getElementById('s3-email').textContent=_email;
+  document.getElementById('s2').style.display='none';
+  document.getElementById('s3').style.display='';
+  /* Gửi thông báo Zalo (nếu có webhook) */
+  notifyZalo();
+}
+
+function switchTab(tab){
+  document.getElementById('tab-bank').classList.toggle('active',tab==='bank');
+  document.getElementById('tab-momo').classList.toggle('active',tab==='momo');
+  document.getElementById('pay-bank').style.display=tab==='bank'?'':'none';
+  document.getElementById('pay-momo').style.display=tab==='momo'?'':'none';
+}
+
+function copyVal(id){
+  const txt=document.getElementById(id).textContent.trim();
+  navigator.clipboard.writeText(txt).catch(()=>{
+    const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+  });
+  showToast('✓ Đã sao chép');
+}
+function showToast(msg){
+  const t=document.createElement('div');
+  t.textContent=msg;
+  t.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(0);background:#0d4a28;color:#fff;padding:9px 20px;border-radius:24px;font-size:13px;font-weight:600;z-index:99999;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.25);';
+  document.body.appendChild(t);setTimeout(()=>t.remove(),2000);
+}
+
+/* ══════════════════════════════════════════════════════
+   HỆ THỐNG XÁC NHẬN THANH TOÁN
+   ── Luồng 1: Casso webhook (tự động)
+   ── Luồng 2: Zalo backup (thủ công)
+   ══════════════════════════════════════════════════════
+
+   CASSO SETUP (làm 1 lần):
+   1. Đăng ký tại casso.vn (99K/tháng)
+   2. Kết nối tài khoản ACB
+   3. Webhook URL: https://YOUR-BACKEND.vercel.app/api/casso-webhook
+   4. Điền CASSO_WEBHOOK_SECRET bên dưới
+   ────────────────────────────────────────────────────── */
+const CASSO_ENABLED = false;       /* ← Đổi thành true sau khi setup Casso  */
+const BACKEND_URL   = '';          /* ← URL backend Vercel của bạn           */
+const ZALO_OA_URL   = `https://zalo.me/${CFG.zaloPho}`;
+
+/* Polling: sau khi khách bấm "đã chuyển", tự động check mỗi 30s tối đa 10 lần */
+let _pollTimer=null, _pollCount=0;
+
+function startPolling(email, amount, content){
+  if(!CASSO_ENABLED || !BACKEND_URL) return;
+  _pollCount=0;
+  clearInterval(_pollTimer);
+  _pollTimer=setInterval(async ()=>{
+    _pollCount++;
+    if(_pollCount>10){clearInterval(_pollTimer);return;}
+    try{
+      const res=await fetch(`${BACKEND_URL}/api/check-payment?email=${encodeURIComponent(email)}&content=${encodeURIComponent(content)}&amount=${amount}`);
+      const data=await res.json();
+      if(data.paid){
+        clearInterval(_pollTimer);
+        showActivationSuccess(data.code, email);
+      }
+    }catch(e){}
+  }, 30000);
+}
+
+function showActivationSuccess(code, email){
+  document.getElementById('s3').innerHTML=`
+    <div style="text-align:center;padding:16px 0;">
+      <div style="font-size:52px;margin-bottom:12px;">✅</div>
+      <h3 style="font-family:'Lexend';font-size:19px;font-weight:700;margin-bottom:10px;color:var(--g);">Thanh toán xác nhận!</h3>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.7;margin-bottom:16px;">
+        Mã kích hoạt đã gửi về <strong>${email}</strong>.<br>
+        Vào app và nhập mã để mở khóa tính năng.
+      </p>
+      ${code?`<div style="background:var(--g3);border-radius:10px;padding:14px;margin-bottom:16px;">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">MÃ KÍCH HOẠT CỦA BẠN</div>
+        <div style="font-family:'Lexend';font-size:24px;font-weight:800;color:var(--g);letter-spacing:.1em;">${code}</div>
+      </div>`:''}
+      <a href="${CFG.appUrl}" class="btn-confirm" target="_blank">Vào app & nhập mã →</a>
+    </div>`;
+}
+
+function notifyZalo(){
+  const content = makeContent(_email);
+  const p = PLANS[_plan];
+
+  /* 1. Polling tự động (nếu Casso đã setup) */
+  startPolling(_email, _price, content);
+
+  /* 2. Tự động mở Zalo với nội dung soạn sẵn để admin xác nhận */
+  const zaloMsg = `[ĐƠN MỚI - SỔ DT]\n` +
+    `Gói: ${p.name} - ${p.label}\n` +
+    `Gmail: ${_email}\n` +
+    `Nội dung CK: ${content}\n` +
+    `→ Vui lòng xác nhận & kích hoạt`;
+
+  /* Lưu đơn vào localStorage để không bị mất */
+  try{
+    const orders = JSON.parse(localStorage.getItem('sodt_pending')||'[]');
+    orders.push({plan:_plan, price:_price, email:_email, content, time:new Date().toISOString()});
+    localStorage.setItem('sodt_pending', JSON.stringify(orders));
+  }catch(e){}
+
+  /* Log cho admin */
+  console.log('[ĐƠN MỚI]', {plan:_plan, price:fvnd(_price), email:_email, content});
+
+  /* Sau 3 giây: gợi ý admin mở Zalo nếu Casso chưa setup */
+  if(!CASSO_ENABLED){
+    setTimeout(()=>{
+      const zBtn = document.createElement('a');
+      zBtn.href = `${ZALO_OA_URL}?message=${encodeURIComponent(zaloMsg)}`;
+      zBtn.target = '_blank';
+      zBtn.style.cssText='display:block;margin-top:12px;';
+      zBtn.className='btn-confirm';
+      zBtn.style.background='#0068FF';
+      zBtn.textContent='📲 Nhắn Zalo để xác nhận ngay';
+      const s3=document.getElementById('s3');
+      if(s3&&!s3.querySelector('a[href*="zalo"]')) s3.appendChild(zBtn);
+    },500);
+  }
+}
+
+/* FAQ */
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item'),isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+/* Scroll reveal */
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
